@@ -1,5 +1,4 @@
 package com.example.demo.dao;
-
 import com.example.demo.entity.Lists;
 import com.example.demo.entity.User;
 import org.hibernate.Session;
@@ -7,14 +6,10 @@ import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
-
 import javax.persistence.EntityManager;
 import java.util.List;
-
 @Repository
 public class ListIMPL implements MyDAO{
-
-    //Define field for entity manager
     /*The EntityManager API is used to create and remove persistent entity instances,
         to find entities by their primary key, and to query over entities. */
     private final EntityManager entityManager;

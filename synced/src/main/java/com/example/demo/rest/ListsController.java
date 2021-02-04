@@ -13,7 +13,6 @@ import java.util.List;
 @RestController
 public class ListsController {
     private final MyDAO myDAO;
-
     //Constructor Injection: this is telling the spring framework to wire up your
     //dependencies for the usersDAO.
     @Autowired
@@ -38,10 +37,7 @@ public class ListsController {
     //http://localhost:8080/addCollection
     @PostMapping("/addCollection")
     public Lists addCollection(@RequestBody Lists cardCollection) {
-
         cardCollection.setId(0);
-
-
         myDAO.save(cardCollection);
         return cardCollection;
     }
@@ -61,7 +57,6 @@ public class ListsController {
     public String deleteCollection(@PathVariable int id) {
         //Creating a tempUser to check to see if a user exists
         Lists cardCollection = (Lists) myDAO.fetchById(id);
-
         //This will throw an exception if the employee is null
         if(cardCollection == null) {
             return "User doesn't exist";

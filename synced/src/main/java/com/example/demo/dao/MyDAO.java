@@ -7,5 +7,4 @@ public interface MyDAO {
     Object fetchById(int theId);
     void save(Object object);
     void deleteById(int theId);
-
 }
