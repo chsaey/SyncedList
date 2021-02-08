@@ -1,7 +1,11 @@
 import * as React from 'react';
-import { Text, TextInput, View, Button } from 'react-native';
+import { ScrollView, Text, TextInput, View, Button } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+import Login from './screens/Login';
+import Signup from './screens/Signup';
+import Code from './screens/Code';
+
 
 function HomeScreen({ navigation, route }) {
   React.useEffect(() => {
@@ -15,16 +19,15 @@ function HomeScreen({ navigation, route }) {
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
       <Button
         title="Create post"
-        onPress={() => navigation.navigate('CreatePost')}
+        onPress={() => navigation.navigate('Code')}
       />
-      <Text style={{ margin: 10 }}>Post: {route.params?.post}</Text>
+      <Text style={{ margin: 10 }}>Code: {route.params?.code}</Text>
     </View>
   );
 }
 
 function CreatePostScreen({ navigation, route }) {
   const [postText, setPostText] = React.useState('');
-
   return (
     <>
       <TextInput
@@ -42,7 +45,7 @@ function CreatePostScreen({ navigation, route }) {
         }}
       />
     </>
-  );
+  );  
 }
 
 const Stack = createStackNavigator();
@@ -52,6 +55,9 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator mode="modal">
         <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="Login" component={Login} />        
+        <Stack.Screen name="Signup" component={Signup} />
+        <Stack.Screen name="Code" component={Code} />
         <Stack.Screen name="CreatePost" component={CreatePostScreen} />
       </Stack.Navigator>
     </NavigationContainer>
