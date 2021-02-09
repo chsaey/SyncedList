@@ -5,9 +5,10 @@ import { createStackNavigator } from '@react-navigation/stack';
 import Login from './screens/Login';
 import Signup from './screens/Signup';
 import Code from './screens/Code';
-
+import List from './screens/List';
 
 function HomeScreen({ navigation, route }) {
+
   React.useEffect(() => {
     if (route.params?.post) {
       // Post updated, do something with `route.params.post`
@@ -19,12 +20,14 @@ function HomeScreen({ navigation, route }) {
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
       <Button
         title="Create post"
-        onPress={() => navigation.navigate('Code')}
+        onPress={() => navigation.navigate('List') }
       />
       <Text style={{ margin: 10 }}>Code: {route.params?.code}</Text>
     </View>
   );
 }
+
+
 
 function CreatePostScreen({ navigation, route }) {
   const [postText, setPostText] = React.useState('');
@@ -58,6 +61,7 @@ export default function App() {
         <Stack.Screen name="Login" component={Login} />        
         <Stack.Screen name="Signup" component={Signup} />
         <Stack.Screen name="Code" component={Code} />
+        <Stack.Screen name="List" component={List} />
         <Stack.Screen name="CreatePost" component={CreatePostScreen} />
       </Stack.Navigator>
     </NavigationContainer>

@@ -12,7 +12,14 @@ function Code({ navigation, route }) {
             placeholder="Code" 
             placeholderTextColor="#003f5c"
             onChangeText={text => setCode(text)}/>
-        </View>        
+        </View>
+        <Button
+        title="Enter"
+        onPress={() => {
+          // submit
+          navigation.navigate('Home', { codeText: code });
+        }}
+      />      
       </View>
     );
   }
